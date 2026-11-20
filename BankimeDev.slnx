@@ -1,0 +1,10 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/BankimeDev.Core/BankimeDev.Core.csproj" />
+    <Project Path="src/BankimeDev.Data/BankimeDev.Data.csproj" />
+    <Project Path="src/BankimeDev.Web/BankimeDev.Web.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/BankimeDev.Tests/BankimeDev.Tests.csproj" />
+  </Folder>
+</Solution>
