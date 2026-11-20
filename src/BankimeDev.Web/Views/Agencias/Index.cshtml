@@ -1,0 +1,38 @@
+﻿@model List<Agencia>
+@{
+    ViewData["Title"] = "Agencias";
+    bool todas = ViewBag.Todas;
+}
+
+<h1>Agencias</h1>
+
+<p>
+    @if (todas)
+    {
+        <a asp-action="Index">Ver solo activas</a>
+    }
+    else
+    {
+        <a asp-action="Index" asp-route-todas="true">Ver todas</a>
+    }
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr><th>Código</th><th>Nombre</th><th>Dirección</th><th>Teléfono</th><th>Estado</th></tr>
+    </thead>
+    <tbody>
+        @foreach (var a in Model)
+        {
+            <tr>
+                <td>@a.Codigo</td>
+                <td>@a.Nombre</td>
+                <td>@a.Direccion</td>
+                <td>@a.Telefono</td>
+                <td>@(a.Activa ? "Activa" : "Inactiva")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<p class="text-muted">@Model.Count agencias</p>

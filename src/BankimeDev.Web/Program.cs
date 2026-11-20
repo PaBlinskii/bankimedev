@@ -1,7 +1,14 @@
+using BankimeDev.Data;
+using BankimeDev.Data.Repositorios;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+var cadena = builder.Configuration.GetConnectionString("BankimeDev") ?? throw new InvalidOperationException("Falta la cadena de conexión 'BankimeDev' en appsettings.json");
+builder.Services.AddSingleton(new SqlConnectionFactory(cadena));
+builder.Services.AddScoped<CatalogoRepositorio>();
 
 var app = builder.Build();
 
